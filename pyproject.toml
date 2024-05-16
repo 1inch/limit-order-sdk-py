@@ -1,0 +1,6 @@
+[tool.black]
+line-length = 250
+
+[build-system]
+requires = ["setuptools", "wheel"]  # ensure setuptools and wheel are used for building the package
+build-backend = "setuptools.build_meta"
