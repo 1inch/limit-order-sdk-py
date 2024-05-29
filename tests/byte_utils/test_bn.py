@@ -1,4 +1,4 @@
-from src.limit_order_sdk import BN, BitMask
+from limit_order_sdk import BN, BitMask
 
 
 def test_clear_mask():

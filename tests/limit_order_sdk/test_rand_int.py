@@ -1,4 +1,4 @@
-from src.limit_order_sdk import rand_int
+from limit_order_sdk import rand_int
 
 
 def test_rand_int_range():

@@ -1,4 +1,4 @@
-from src.limit_order_sdk import BitMask
+from limit_order_sdk import BitMask
 
 
 def test_should_create_single_bit_mask():

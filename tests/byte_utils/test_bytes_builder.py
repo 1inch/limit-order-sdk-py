@@ -1,4 +1,4 @@
-from src.limit_order_sdk import BytesBuilder, BN
+from limit_order_sdk import BytesBuilder, BN
 
 
 def test_bytes_builder():

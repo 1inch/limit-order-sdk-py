@@ -1,4 +1,4 @@
-from src.limit_order_sdk import Extension
+from limit_order_sdk import Extension
 
 
 def test_extension_encode_decode():

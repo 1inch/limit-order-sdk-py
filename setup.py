@@ -2,9 +2,9 @@ from setuptools import setup, find_packages
 
 setup(
     name="limit-order-sdk",
-    version="0.6.0",
-    package_dir={"": "src"},  # Tells setuptools that packages are under src
-    packages=find_packages(where="src"),  # Automatically find all packages in src
+    version="0.9.0",
+    package_dir={"": "limit_order_sdk"},  # Tells setuptools that packages are under limit_order_sdk
+    packages=find_packages(where="limit_order_sdk"),  # Automatically find all packages in slimit_order_sdk
     install_requires=["web3", "requests"],
     extras_require={"dev": ["pytest", "twine", "build"]},
     python_requires=">=3.11, <3.15",

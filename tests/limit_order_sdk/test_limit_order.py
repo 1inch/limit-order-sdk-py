@@ -1,6 +1,6 @@
 import pytest
 from unittest.mock import patch
-from src.limit_order_sdk import LimitOrder, MakerTraits, ExtensionBuilder, OrderInfoData, Address
+from limit_order_sdk import LimitOrder, MakerTraits, ExtensionBuilder, OrderInfoData, Address
 
 
 @pytest.fixture

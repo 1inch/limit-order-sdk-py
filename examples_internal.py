@@ -3,7 +3,7 @@ import time
 import math
 from pprint import pprint
 
-from src.limit_order_sdk import Address, OrderInfoData
+from limit_order_sdk import Address, OrderInfoData
 
 
 # This is a well-known test private key, do not use it in production
@@ -11,7 +11,7 @@ PRIV_KEY = "0xac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80"
 
 
 def create_limit_order(chain_id: int):
-    from src.limit_order_sdk import LimitOrder, MakerTraits
+    from limit_order_sdk import LimitOrder, MakerTraits
 
     wallet = Account.from_key(PRIV_KEY)
 
@@ -38,7 +38,7 @@ def create_limit_order(chain_id: int):
 
 
 def create_rfq_order(chain_id: int):
-    from src.limit_order_sdk import RfqOrder, rand_int, UINT_40_MAX
+    from limit_order_sdk import RfqOrder, rand_int, UINT_40_MAX
 
     wallet = Account.from_key(PRIV_KEY)
 
