@@ -1,12 +1,15 @@
 from web3 import Web3
 from web3.contract import Contract
 from eth_typing import HexStr
+import os
 
-from limit_order_sdk.constants import ZX, LOP_V4_ABI_PATH
+from limit_order_sdk.constants import ZX
 from limit_order_sdk.utils import get_contract_web3
 from limit_order_sdk.limit_order import TakerTraits, LimitOrderV4Struct
 
-lop_contract: Contract = get_contract_web3(LOP_V4_ABI_PATH)
+
+path = os.path.join(os.path.dirname(__file__), "AggregationRouterV6.abi.json")
+lop_contract: Contract = get_contract_web3(path)
 
 
 class LimitOrderContract:

@@ -1,4 +1,3 @@
-from limit_order_sdk.abi import *
 from limit_order_sdk.api import *
 from limit_order_sdk.libs.byte_utils import *
 from limit_order_sdk.limit_order_contract import *

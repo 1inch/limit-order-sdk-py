@@ -4,3 +4,4 @@ dist
 limit_order_sdk/*.egg-info
 .pypirc
 .env
+limit_order_sdk.egg-info
