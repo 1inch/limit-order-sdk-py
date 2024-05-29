@@ -1,4 +1,4 @@
-from src.limit_order_sdk import Interaction, Address
+from limit_order_sdk import Interaction, Address
 
 
 def test_interaction_encode_decode():

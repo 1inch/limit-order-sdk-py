@@ -1,5 +1,5 @@
 import pytest
-from src.limit_order_sdk import Address, MakerTraits, UINT_160_MAX, UINT_40_MAX
+from limit_order_sdk import Address, MakerTraits, UINT_160_MAX, UINT_40_MAX
 
 
 @pytest.fixture

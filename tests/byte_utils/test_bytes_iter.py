@@ -1,4 +1,4 @@
-from src.limit_order_sdk import BytesIter, Side
+from limit_order_sdk import BytesIter, Side
 
 
 def test_iterate_as_int():

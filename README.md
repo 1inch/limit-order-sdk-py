@@ -13,8 +13,8 @@ pip install git+https://github.com/1inch/limit-order-sdk-py.git
 ```
 
 ## Docs
-- [Limit Order](src/limit_order_sdk/limit_order/README.md)
-- [Limit Order Contract](src/limit_order_sdk/limit_order_contract/README.md)
+- [Limit Order](limit_order_sdk/limit_order/README.md)
+- [Limit Order Contract](limit_order_sdk/limit_order_contract/README.md)
 
 ## Usage examples
 

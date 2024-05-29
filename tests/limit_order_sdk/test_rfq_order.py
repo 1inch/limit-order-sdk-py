@@ -1,5 +1,5 @@
 import pytest
-from src.limit_order_sdk import RfqOrder, OrderInfoData, Address, UINT_40_MAX
+from limit_order_sdk import RfqOrder, OrderInfoData, Address, UINT_40_MAX
 
 
 def test_should_validate_max_nonce():

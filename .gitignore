@@ -1,6 +1,7 @@
 __pycache__
 .pytest_cache
 dist
-src/*.egg-info
+limit_order_sdk/*.egg-info
 .pypirc
 .env
+limit_order_sdk.egg-info
