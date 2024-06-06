@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="limit-order-sdk",
-    version="0.13.0",
+    version="0.0.2",
     packages=find_packages(),  # Automatically find all packages within the project
     install_requires=["web3", "requests"],
     extras_require={"dev": ["pytest", "twine", "build"]},

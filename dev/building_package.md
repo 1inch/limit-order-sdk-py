@@ -1,8 +1,18 @@
-- Create necessery files
+# Creating Package
+```sh
 pipenv run python -m build
+```
+## Upload to PyPi
+```sh
+pipenv run twine upload dist/*
+```
 
-- Upload to testpypi
+## Upload to TestPyPi
+
+```sh
 pipenv run twine upload --repository testpypi dist/*
-
-- Installing package, uploaded previously
+```
+### Installing Package from TestPyPI
+```sh
 pip install --index-url https://test.pypi.org/simple/ limit-order-sdk
+```

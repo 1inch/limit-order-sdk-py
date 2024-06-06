@@ -4,7 +4,7 @@
 
 ### Package manager (Pypi)
 ```shell
-pip install ... 
+pip install limit-order-sdk
 ```
 
 ### From source
