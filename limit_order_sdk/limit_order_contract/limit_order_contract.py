@@ -33,7 +33,7 @@ class LimitOrderContract:
 
         assert args == ZX, "takerTraits contains args data, use LimitOrderContract.get_fill_order_args_calldata method"
 
-        return lop_contract.encodeABI(fn_name="fillOrder", args=[order, r, vs, amount, trait])
+        return lop_contract.encodeABI(fn_name="fillOrder", args=[order.to_int_tuple(), r, vs, amount, trait])
 
     @staticmethod
     def get_fill_contract_order_calldata(order: LimitOrderV4Struct, signature: str, taker_traits: TakerTraits, amount: int) -> str:
@@ -50,7 +50,7 @@ class LimitOrderContract:
 
         assert args == ZX, "takerTraits contains args data, use LimitOrderContract.get_fill_contract_order_args_calldata method"
 
-        return lop_contract.encodeABI(fn_name="fillContractOrder", args=[order, signature, amount, trait, args])
+        return lop_contract.encodeABI(fn_name="fillContractOrder", args=[order.to_int_tuple(), signature, amount, trait, args])
 
     @staticmethod
     def get_fill_order_args_calldata(order: LimitOrderV4Struct, signature: str, taker_traits: TakerTraits, amount: int) -> str:
@@ -66,7 +66,7 @@ class LimitOrderContract:
         r, vs = Web3.to_bytes(hexstr=HexStr(signature[:66])), Web3.to_bytes(hexstr=HexStr("0x" + signature[66:]))
         args, trait = taker_traits.encode()
 
-        return lop_contract.encodeABI(fn_name="fillOrderArgs", args=[order, r, vs, amount, trait, args])
+        return lop_contract.encodeABI(fn_name="fillOrderArgs", args=[order.to_int_tuple(), r, vs, amount, trait, args])
 
     @staticmethod
     def get_fill_contract_order_args_calldata(order: LimitOrderV4Struct, signature: str, taker_traits: TakerTraits, amount: int) -> str:
@@ -81,4 +81,4 @@ class LimitOrderContract:
         """
         args, trait = taker_traits.encode()
 
-        return lop_contract.encodeABI(fn_name="fillContractOrderArgs", args=[order, signature, amount, trait, args])
+        return lop_contract.encodeABI(fn_name="fillContractOrderArgs", args=[order.to_int_tuple(), signature, amount, trait, args])
