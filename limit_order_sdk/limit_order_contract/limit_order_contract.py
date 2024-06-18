@@ -1,6 +1,4 @@
-from web3 import Web3
 from web3.contract import Contract
-from eth_typing import HexStr
 import os
 
 from limit_order_sdk.constants import ZX
