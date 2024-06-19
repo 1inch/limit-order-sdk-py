@@ -67,7 +67,7 @@ class LimitOrderContract:
         encoded_taker_traits = taker_traits.encode()
         trait, args = encoded_taker_traits['trait'], encoded_taker_traits['args']
 
-        return lop_contract.encode_abi(fn_name="fillOrderArgs", args=[order.to_int_tuple(), r, vs, amount, trait, args])
+        return lop_contract.encodeABI(fn_name="fillOrderArgs", args=[order.to_int_tuple(), r, vs, amount, trait, args])
 
     @staticmethod
     def get_fill_contract_order_args_calldata(order: LimitOrderV4Struct, signature: str, taker_traits: TakerTraits, amount: int) -> str:
