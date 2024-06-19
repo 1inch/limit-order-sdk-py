@@ -50,7 +50,7 @@ class LimitOrderContract:
 
         assert args == ZX, "takerTraits contains args data, use LimitOrderContract.get_fill_contract_order_args_calldata method"
 
-        return lop_contract.encodeABI(fn_name="fillContractOrder", args=[order.to_int_tuple(), signature, amount, trait, args])
+        return lop_contract.encodeABI(fn_name="fillContractOrder", args=[order.to_int_tuple(), signature, amount, trait])
 
     @staticmethod
     def get_fill_order_args_calldata(order: LimitOrderV4Struct, signature: str, taker_traits: TakerTraits, amount: int) -> str:
