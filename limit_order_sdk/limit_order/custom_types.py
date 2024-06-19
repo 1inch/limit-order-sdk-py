@@ -30,6 +30,18 @@ class LimitOrderV4Struct:
         """Convert the dataclass to a dictionary"""
         return asdict(self)
 
+    def to_int_tuple(self) -> tuple:
+        return (
+            self.salt,
+            int(self.maker, 16),
+            int(self.receiver, 16),
+            int(self.makerAsset, 16),
+            int(self.takerAsset, 16),
+            self.makingAmount,
+            self.takingAmount,
+            self.makerTraits
+        )
+
 
 class IExtensionBuilder:
     def build(self) -> Extension:

@@ -112,6 +112,7 @@ class TakerTraits:
 
     def set_amount_threshold(self, threshold: int):
         self.flags = self.flags.set_mask(self.THRESHOLD_MASK, threshold)
+        return self
 
     def remove_amount_threshold(self):
         self.flags = self.flags.set_mask(self.THRESHOLD_MASK, 0)
