@@ -5,3 +5,4 @@ limit_order_sdk/*.egg-info
 .pypirc
 .env
 limit_order_sdk.egg-info
+private_example.py

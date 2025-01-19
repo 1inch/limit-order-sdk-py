@@ -33,7 +33,7 @@ def create_limit_order(chain_id: int):
     typed_data = order.get_typed_data(chain_id)
     signed_message = Account.sign_typed_data(PRIV_KEY, typed_data.domain, {"Order": typed_data.types["Order"]}, typed_data.message)
 
-    pprint(f"Limit Order signed message: {signed_message}\n")
+    pprint(f"Limit Order signed message: {signed_message}")
 
 
 def create_rfq_order(chain_id: int):

@@ -1,6 +1,5 @@
 from web3 import Web3
-from eth_typing import HexStr
-from eth_account.messages import encode_structured_data
+from eth_account.messages import encode_typed_data
 
 from limit_order_sdk.limit_order.eip712.eip712_types import EIP712DomainType, EIP712TypedData
 from limit_order_sdk.limit_order import LimitOrderV4Struct
@@ -10,9 +9,16 @@ from limit_order_sdk.limit_order.eip712.domain import EIP712Domain, LimitOrderV4
 
 def get_order_hash(data: EIP712TypedData) -> str:
     # Encode the structured data
-    encoded_data = encode_structured_data({"domain": data.domain, "types": data.types, "message": data.message})
+    encoded_data = encode_typed_data(
+        full_message={
+            "primaryType": data.primaryType,
+            "domain": data.domain,
+            "types": data.types,
+            "message": data.message,
+        }
+    )
 
-    order_hash = Web3.keccak(["bytes"], [encoded_data])
+    order_hash = Web3.keccak(encoded_data.body)
     return order_hash.hex()
 
 
@@ -27,8 +33,8 @@ def build_order_typed_data(chain_id: int, verifying_contract: str, name: str, ve
 def get_domain_separator(name: str, version: str, chainId: int, verifyingContract: str) -> str:
     domain_data = {"name": name, "version": version, "chainId": chainId, "verifyingContract": verifyingContract}
     eip712_domain = {"primaryType": "EIP712Domain", "types": {"EIP712Domain": EIP712Domain}, "domain": domain_data, "message": domain_data}
-    encoded_data = encode_structured_data(eip712_domain)
-    return Web3.keccak(["bytes"], [encoded_data]).hex()
+    encoded_data = encode_typed_data(eip712_domain)
+    return Web3.keccak(encoded_data.body).hex()
 
 
 def get_limit_order_v4_domain(chain_id: int) -> EIP712DomainType:

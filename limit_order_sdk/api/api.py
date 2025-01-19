@@ -1,3 +1,4 @@
+import requests
 from typing import Any, Dict, Union, Optional, List
 from urllib.parse import urlencode
 from limit_order_sdk.api import ApiConfig, LimitOrderApiItem, StatusKey, SortKey, DEV_PORTAL_LIMIT_ORDER_BASE_URL, Pager
@@ -19,20 +20,24 @@ class Api:
         @param order
         @param signature
         """
-        self.http_client.post(
+        data = {"orderHash": order.get_order_hash(self.chain_id), "signature": signature, "data": {**(order.build().__dict__), "extension": order.extension.encode()}}
+        print(f"http_client {self.http_client}, url: {self.url('/')}, headers: {self.headers()}, data: {data}")
+        res = self.http_client.post(
             self.url("/"),
-            {"orderHash": order.get_order_hash(self.chain_id), "signature": signature, "data": {**(order.build().__dict__), "extension": order.extension.encode()}},
-            self.headers(),
+            data,
+            headers=self.headers(),
         )
+
+        print(res.json(), res.status_code)
 
     def get_orders_by_maker(self, maker: Address, filters: Optional[Dict[str, Any]] = None, sort_key: Optional[SortKey] = None) -> LimitOrderApiItem:
         """
         Fetch orders created by `maker`
         """
-        params: Dict[str, Any] = {"limit": None, "page": None, "statuses": None, "makerAsset": None, "takerAsset": None, "sortBy": "createdAt"}
+        params: Dict[str, Any] = {"limit": None, "page": None, "statuses": None, "makerAsset": None, "takerAsset": None, "sortBy": sort_key}
         if filters:
             params.update(filters)
-        return self.http_client.get(self.url(f"/address/{maker}", params), self.headers())
+        return self.http_client.get(self.url(f"/address/{maker}", params), headers=self.headers())
 
     def get_order_by_hash(self, hash: str) -> LimitOrderApiItem:
         """
